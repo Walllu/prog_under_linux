@@ -11,7 +11,7 @@ int main(void){
 	//char format[16];
 	printf("P2 %d %d %d\n", MAX, MAX, DEPTH);
 	//sprintf(format, "P2 %d %d %d\n", MAX, MAX, DEPTH); // set the format
-	unsigned char img[MAX][MAX];
+	unsigned char img[MAX*2 + 1][MAX];
 	// the following is for generating random numbers
 	time_t t; // rand seed init
 	srand(time(NULL));
@@ -22,14 +22,16 @@ int main(void){
 			img[i][j] = (char)rand()%(DEPTH);
 		}
 	} 
-
 	// now that the array is populated, you can simply printf each array element
 	//printf(format);
 	for(i=0;i<MAX;i++){
 		for(j=0;j<MAX;j++){
-			printf("%c",img[i][j]);
+			if(j==MAX-1){
+				printf("%d\n",img[i][j]);
+			} else {
+				printf("%d ",img[i][j]);
+			}
 		}
-		printf("\n");
 	}
 	return 0;
 }
