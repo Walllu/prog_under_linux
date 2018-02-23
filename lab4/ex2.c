@@ -13,11 +13,11 @@ int factorial(int num){
 
 int main(int argc, char * argv[]){
 	if(argc<2){
-		printf("You need to input a number!");
+		printf("\nYou need to input a number!\n");
 	} else {
 		int i;
 		for(i=1;i<=argc;i++){
-			printf("%d! is %d",(int)(*argv[i]),factorial((int)*argv[i]));
+			printf("\n%d! is %d\n",(int)(*argv[i]),factorial((int)*argv[i]));
 		}
 	}
 	
