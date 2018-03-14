@@ -1,0 +1,5 @@
+Complex number program - this program computes the cube roots of a complex number
+by Walter Leinonen
+
+Type in the command "make" into the shell, and the makefile will build the code for you.
+Simply call the program from the shell "./ex3" and input a complex number

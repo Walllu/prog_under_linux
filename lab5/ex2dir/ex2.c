@@ -30,28 +30,30 @@ int main(int argc, char * argv[]){
 		return 0;
 	}
 	// parse the input 
-	int arg;
-	sscanf(argv[1], "%d", &arg);
+	double arg;
+	sscanf(argv[1], "%lf", &arg);
 	if(arg<=2){
 		printf("\nYou try drawing a 2-gon or less, it's not that easy!\n");
 	} else if(arg>2){
-		int inrad = 20; //the initial distance turtle moves out
+		int inrad = 50; //the initial distance turtle moves out
 		//code for an n-gon
 		turtle_init(256,256); //create 2D field
 		turtle_reset();       //set turtle on 0,0
 		turtle_pen_up();      //disable draw
 		turtle_forward(inrad); // inital move out
-		//turtle_set_heading(90);
-		int angle = 180*((arg-2)/arg); //internal angle of n-gon
-		int dist = 2*inrad*sin(MPI/arg);//side lengths
+		turtle_set_heading(-90); //90 should point up but it points down for some reason???
+
+		double internal_angle =180*((arg-2)/arg); //internal angle of n-gon
+		double turn_by = 180 - internal_angle; // I think I need to turn by this much??
+
+		//printf("Angle : %lf Arg : %d\n", angle, arg);
+		int dist = 2*inrad*sin(MPI/arg);//side lengths of an n-gon
 		int i;
 		// draw the n-gon already!
 		turtle_pen_down();
 		for(i=0;i<arg;i++){
-			//turtle_forward(dist);
-			turtle_turn_left(angle);
 			turtle_forward(dist);
-			
+			turtle_turn_right(turn_by);
 		}
 		turtle_save_png("mylogo.png"); // save the image
 	} else {

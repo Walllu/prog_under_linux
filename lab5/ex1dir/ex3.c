@@ -15,6 +15,9 @@ void generateImg(int sqsize, unsigned char array[][sqsize], int depth){
 	}
 }
 
+
+// A command-line facing program that can be called to generate a random PGM image
+// The output is to stdout, allowing this program to be piped to the display function in bash
 int main(int argc, char * argv[]){
 	if(argc==2&&strcmp(argv[1],"-h")==0){
 		printf("This is a program that generates a random staticy image");
