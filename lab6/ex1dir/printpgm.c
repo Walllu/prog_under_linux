@@ -1,8 +1,11 @@
 #include <stdio.h>
 #include <string.h>
 
-// source code for printing an image characterized by a 2D array of integers
-void printImg(int size, unsigned char array[][size], int depth){
+// This function stores a PGM
+// the fle format is less compact and takes more time to read/write than the binary format
+// but it is human readable, and perhaps more intuitive for people to use
+// making it less prone to human programming error
+void storeImg(int size, unsigned char array[][size], int depth){
 	int i,j;
 	FILE *outfile;
 	outfile = fopen("myimg.pgm", "w");
@@ -22,7 +25,12 @@ void printImg(int size, unsigned char array[][size], int depth){
 	fclose(outfile);
 }
 
-void printImgP5(int size, unsigned char array[][size], int depth){
+
+// This function stores a binary PGM
+// this file format is more compact and takes less time to read/write
+// but the process is more manual, and prone to human logic/arithmetic errors
+// that could damage other files on disk/memory
+void storeImgP5(int size, unsigned char array[][size], int depth){
 	int i;
 	FILE *outfile;
 	outfile = fopen("mybin.pgm", "wb");

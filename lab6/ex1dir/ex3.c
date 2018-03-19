@@ -26,8 +26,8 @@ int main(int argc, char * argv[]){
 		int DEPTH = 255;
 		unsigned char img[MAX*2+1][MAX]; // make the array
 		generateImg(MAX,img,DEPTH);
-		printImg(MAX,img,DEPTH);		
-		printImgP5(MAX,img,DEPTH);
+		storeImg(MAX,img,DEPTH);		
+		storeImgP5(MAX,img,DEPTH);
 	}
 return 0;
 }
